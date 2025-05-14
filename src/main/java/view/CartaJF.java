@@ -146,7 +146,7 @@ public class CartaJF extends javax.swing.JFrame {
                     jpa = new PersistenciaJPA();
                 }
                 try {
-                    jpa.persist(cartaSel);
+                    jpa.remover(cartaSel);
                 } catch (Exception ex) {
                     System.err.println("Erro ao Remover carta");
                 }
@@ -164,6 +164,7 @@ public class CartaJF extends javax.swing.JFrame {
         }
 
         CadastroCartaJD telaCadastro = new CadastroCartaJD(this, true);
+        telaCadastro.setCarta(cartaSel);
         telaCadastro.setVisible(true);
 
         Carta cartaEditada = telaCadastro.getCarta();
@@ -175,7 +176,7 @@ public class CartaJF extends javax.swing.JFrame {
             try {
                 jpa.persist(cartaEditada);
             } catch (Exception ex) {
-                System.err.println("Erro ao Editar carta");
+                System.err.println("Erro ao editar carta");
             }
             loadCards();
         }
